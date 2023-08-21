@@ -38,15 +38,6 @@ https://youtu.be/xaWnb6a1-Uc
 - [ps-inventoy](https://github.com/Project-Sloth/ps-inventory)
 - [ox_inventory](https://overextended.dev/ox_inventory) 
 
-**Optional**
-
-- [interact-sound](https://github.com/plunkettscott/interact-sound)
-- Fuel Script
-  - [ox_fuel](https://github.com/overextended/ox_fuel)
-  - [cdn-fuel](https://github.com/CodineDev/cdn-fuel)
-  - [LegacyFuel](https://github.com/InZidiuZ/LegacyFuel)
-  - (or any fuel script that has SetFuel export)
-
 # Installation
 
 Join my [Discord Server](https://discord.gg/DbqC2SWzJk) for updates
@@ -59,7 +50,6 @@ Add this to your server.cfg
 ```cfg
 setr ox:locale en
 ```
-
 
 ## server.cfg
 
