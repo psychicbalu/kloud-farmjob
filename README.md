@@ -1,3 +1,7 @@
+# kloud-farmjob
+
+Dive into the world of a simple farmer, gather crops and sell it for money!
+
 # Features
 
 * Highly Configurable
@@ -5,7 +9,6 @@
 * Highly Optimized (0.00ms Idle & 0.00 ~ 0.09 ms Active)
 * Usage of Targeting Script for more immersive experience
 * Smooth Animations
-
 
 # Preview
 
