@@ -84,7 +84,7 @@ end)
 local updatePath
 local resourceName
 
-CheckVersion = function(response)
+CheckVersion = function(err, response, headers)
     local curVersion = LoadResourceFile(GetCurrentResourceName(), "version")
 	if response == nil then print("^1"..resourceName.." check for updates failed ^7") return end
     if curVersion ~= nil and response ~= nil then
