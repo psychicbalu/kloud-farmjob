@@ -3,7 +3,7 @@ if GetResourceState("ox_target") ~= "started" then return end
 AddTarget = function (coords, radius, options)
     exports.ox_target:addSphereZone({
         coords = coords,
-        radius = 2.25,
+        radius = radius or 2.0,
         debug = KloudDev.Debug,
         drawSprite = KloudDev.DrawSprite,
         options = options
@@ -29,4 +29,8 @@ end
 
 AddTargetModel = function(model, options)
     exports.ox_target:addModel(model, options)
+end
+
+RemoveTargetModel = function(models, optionNames, optionLabels)
+    exports.ox_target:removeModel(models, optionNames)
 end

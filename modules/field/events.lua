@@ -34,6 +34,7 @@ end)
 RegisterNetEvent("kloud-farm:client:pickTree", function(data)
     local zoneData = KloudDev.Trees[data.currentZone]
     local canStart, msg = lib.callback.await("kloud-farm:callback:canStart", false, zoneData)
+    print(json.encode(data))
     if not canStart then Notify(msg, "error") return end
     _G.IsBusy = true
     if zoneData.anim.scenario then
@@ -57,7 +58,7 @@ RegisterNetEvent("kloud-farm:client:pickTree", function(data)
     end
     ClearPedTasksImmediately(cache.ped)
     _G.IsBusy = false
-    table.insert(_T.PickedTrees, {entity = data.entity, cooldown = zoneData.cooldown})
+    table.insert(_T.PickedTrees, {entity = data.name, cooldown = zoneData.cooldown})
     TriggerEvent("kloud-farm:client:startTreesCooldown")
     lib.callback("kloud-farm:callback:uprooted", 3000, nil, zoneData)
 end)

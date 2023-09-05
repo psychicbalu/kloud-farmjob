@@ -212,64 +212,18 @@ KloudDev.Trees = {
             vec3(2361.0, 4712.0, 35.0),
             vec3(2428.0, 4646.0, 35.0),
         },
-        cooldown = 60,
-        prop = "prop_veg_crop_orange",
-        job = false, -- false to disable, "jobname" to enable
-        action = {
-            type = "skillCheck", -- "progress" / "skillCheck"
-            progressDuration = 5000,
-            skillCheckDifficulty = {"easy", "easy", "easy", "easy"}, -- "easy", "medium", "hard"
-            skillCheckInputs = {"1", "2", "3", "4"}
-        },
-        target = {
-            label = "Pick Orange",
-            icon = "fas fa-cannabis"
-        },
-        anim = {
-            scenario = nil,
-            dict = "missmechanic",
-            clip = "work_base",
-            upperBody = true
-        },
-        item = {
-            require = {
-                enable = false,
-                item = "trowel",
-                durability = {
-                    subtract = true,
-                    amount = 1,
-                    chance = 75
-                },
-                breaking = {
-                    enabled = true,
-                    chance = 15
-                }
-            },
-            name = "orange",
-            label = "Orange",
-            min = 1,
-            max = 4
-        },
-        blip = {
-            enabled = true,
-            label = "Orange Field",
-            
-            sprite = 285,
-            scale = 0.9,
-            colour = 47,
-        },
-    },
-    ["orange2"] = {
-        coords = vec4(2360.21, 4729.47, 34.53, 260.21),
-        zoneType = "poly",
-        zoneRadius = 55,
-        zonePoints = {
-            vec3(2455.0, 4670.0, 35.0),
-            vec3(2367.0, 4761.0, 35.0),
-            vec3(2311.0, 4780.0, 35.0),
-            vec3(2299.0, 4743.0, 35.0),
-            vec3(2361.0, 4712.0, 35.0),
-            vec3(2428.0, 4646.0, 35.0),
+        treeBoxes = {
+            vec3(2390.087646484375, 4992.4052734375, 45.84523010253906),
+            vec3(2389.78125, 5004.60791015625, 46.16830062866211),
+            vec3(2377.555908203125, 5003.97998046875, 45.05754089355469),
+            vec3(2376.390380859375, 5016.849609375, 46.13376998901367),
+            vec3(2369.387939453125, 5010.86083984375, 44.57109451293945),
+            vec3(2360.85595703125, 5002.35498046875, 44.25883865356445),
+            vec3(2373.978515625, 4989.0029296875, 44.79965591430664),
+            vec3(2361.60009765625, 4988.73095703125, 43.83900833129883),
+            vec3(2361.814208984375, 4976.4228515625, 43.84741592407226),
+            vec3(2349.230224609375, 4975.888671875, 43.39030838012695),
+            vec3(2349.380859375, 4989.5654296875, 43.69776153564453)
         },
         cooldown = 60,
         prop = "prop_veg_crop_orange",
@@ -317,7 +271,7 @@ KloudDev.Trees = {
             scale = 0.9,
             colour = 47,
         },
-    },
+    }
 }
 
 KloudDev.WashLocations = {

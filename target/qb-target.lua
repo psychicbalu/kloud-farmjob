@@ -64,6 +64,11 @@ AddTargetModel = function(model, options)
     exports["qb-target"]:AddTargetModel(model, {options = optionsTbl, distance = distance})
 end
 
+
+RemoveTargetModel = function(models, optionNames, optionLabels)
+    exports['qb-target']:RemoveTargetModel(models, optionLabels)
+end
+
 RemoveEntityTarget = function(entity, optionNames, labels)
     if NetworkGetEntityIsNetworked(entity) then
         local netId = NetworkGetNetworkIdFromEntity(entity)

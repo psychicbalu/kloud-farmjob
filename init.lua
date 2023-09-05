@@ -42,8 +42,10 @@ Start = function()
                     if info.job and PlayerJob.name ~= info.job then return end
                     _G.InZone = true
                     _G.CurrentZone = zone
+                    -- CreateTreeTargets()
                 end,
                 onExit = function()
+                    -- RemoveTreeTargets()
                     _G.InZone = false
                     _G.CurrentZone = nil
                 end
@@ -57,8 +59,10 @@ Start = function()
                     if info.job and PlayerJob.name ~= info.job then return end
                     _G.InZone = true
                     _G.CurrentZone = zone
+                    -- CreateTreeTargets()
                 end,
                 onExit = function()
+                    -- RemoveTreeTargets()
                     _G.InZone = false
                     _G.CurrentZone = nil
                 end
@@ -130,20 +134,23 @@ end
 CreateTargets = function()
     for zone, info in pairs(KloudDev.Trees) do
         if info.job and PlayerJob.name ~= info.job then return end
-        AddTargetModel(info.prop, {
-            {
-                event = 'kloud-farm:client:pickTree',
-                label = info.target.label,
-                name = "PickTrees",
-                icon = info.target.icon,
-                currentZone = zone,
-                canInteract = function(entity)
-                    if not _G.IsBusy and _G.InZone and CanPick(entity) and _G.CurrentZone == zone then return true end
-                    return false
-                end,
-                distance = 2,
-            }
-        })
+        for k, v in pairs(info.treeBoxes) do
+            AddTarget(v, 1.2, {
+                {
+                    label = info.target.label,
+                    name = "PickTrees" .. v,
+                    icon = info.target.icon,
+                    currentZone = zone,
+                    canInteract = function(entity, distance, coords, name, bone)
+                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone then return true end
+                        return false
+                    end,
+                    onSelect = function(data)
+                        TriggerEvent('kloud-farm:client:pickTree', data)
+                    end
+                }
+            })
+        end
     end
 
     for _, coords in pairs(KloudDev.WashLocations.coords) do
@@ -167,6 +174,36 @@ CreateTargets = function()
                 end
             end
         })
+    end
+end
+
+CreateTreeTargets = function()
+    for zone, info in pairs(KloudDev.Trees) do
+        if info.job and PlayerJob.name ~= info.job then return end
+        for k, v in pairs(info.treeBoxes) do
+            AddTarget(v, 1.2, {
+                {
+                    label = info.target.label,
+                    name = "PickTrees" .. v,
+                    icon = info.target.icon,
+                    currentZone = zone,
+                    canInteract = function(entity, distance, coords, name, bone)
+                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone then return true end
+                        return false
+                    end,
+                    onSelect = function(data)
+                        TriggerEvent('kloud-farm:client:pickTree', data)
+                    end
+                }
+            })
+        end
+    end
+end
+
+RemoveTreeTargets = function()
+    for _, info in pairs(KloudDev.Trees) do
+        if info.job and PlayerJob.name ~= info.job then return end
+        RemoveTargetModel(info.prop, "PickTrees", info.target.label)
     end
 end
 
