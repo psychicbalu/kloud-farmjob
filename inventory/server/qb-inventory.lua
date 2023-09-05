@@ -16,6 +16,7 @@ for i = 1, #qbVariations do
 end
 
 AddItem = function(inv, item, amount, metadata)
+    local metadata = metadata or nil
     if Inventory:AddItem(inv, item, amount, false, metadata) then
         for i = 1, amount do
             TriggerClientEvent('inventory:client:ItemBox', inv, QBCore.Shared.Items[item], 'add')
@@ -26,6 +27,9 @@ AddItem = function(inv, item, amount, metadata)
 end
 
 RemoveItem = function(inv, item, amount, metadata, slot)
+    local metadata = metadata or nil
+    local slot = slot or nil
+
     if Inventory:RemoveItem(inv, item, amount, slot) then
         for i = 1, amount do
             TriggerClientEvent('inventory:client:ItemBox', inv, QBCore.Shared.Items[item], 'remove')
@@ -45,6 +49,8 @@ GetItemCount = function(inv, item)
 end
 
 GetSlotWithItem = function(inv, item, metadata, strict)
+    local metadata = metadata or nil
+    local strict = strict or false
     local Player = GetPlayer(inv)
     return Inventory:GetFirstSlotByItem(Player.PlayerData.items, item)
 end

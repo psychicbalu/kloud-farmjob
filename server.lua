@@ -72,6 +72,9 @@ lib.callback.register("kloud-farm:callback:buyItem", function(source, data)
     local src = source
 
     if not RemoveMoney(src, "cash", data.price * data.amount, "Buy Farming Item") then return false end
-        
-    if not AddItem(src, data.item, data.amount) then return false end
+
+    if not AddItem(src, data.item, data.amount) then
+        AddMoney(src, "cash", data.pirce * data.amount, "Give Back Money")
+        return false
+    end
 end)
