@@ -7,7 +7,7 @@ RegisterNetEvent("kloud-farm:client:openSell", function()
                     local values = {}
                     for i = 1, GetItemCount(data[1], nil, false) do
                         if i <= KloudDev.WashLocations.maxWash then
-                            table.insert(values, i)
+                            table.insert(values, FormatStr(data[1]) .. " $" .. tonumber(data[2]) * i)
                         end
                     end
                     table.insert(optionsTbl, {
@@ -54,7 +54,7 @@ RegisterNetEvent("kloud-farm:client:openShop", function()
             for _, data in pairs(v.prices) do
                 local values = {}
                 for i = 1, 10 do
-                    table.insert(values, i)
+                    table.insert(values, FormatStr(data[1]) .. " $" .. tonumber(data[2]) * i)
                 end
                 table.insert(optionsTbl, {
                     label = "$" .. data[2] .." ".. FormatStr(data[1]),
