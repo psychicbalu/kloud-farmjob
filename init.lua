@@ -133,7 +133,6 @@ end
 
 CreateTargets = function()
     for zone, info in pairs(KloudDev.Trees) do
-        if info.job and PlayerJob.name ~= info.job then return end
         for k, v in pairs(info.treeBoxes) do
             AddTarget(v, 1.2, {
                 {
@@ -142,7 +141,7 @@ CreateTargets = function()
                     icon = info.target.icon,
                     currentZone = zone,
                     canInteract = function(entity, distance, coords, name, bone)
-                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone then return true end
+                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone and (info.job and PlayerJob.name == info.job) then return true end
                         return false
                     end,
                     onSelect = function(data)
@@ -179,7 +178,6 @@ end
 
 CreateTreeTargets = function()
     for zone, info in pairs(KloudDev.Trees) do
-        if info.job and PlayerJob.name ~= info.job then return end
         for k, v in pairs(info.treeBoxes) do
             AddTarget(v, 1.2, {
                 {
@@ -188,7 +186,7 @@ CreateTreeTargets = function()
                     icon = info.target.icon,
                     currentZone = zone,
                     canInteract = function(entity, distance, coords, name, bone)
-                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone then return true end
+                        if not _G.IsBusy and _G.InZone and CanPick(name) and _G.CurrentZone == zone and (info.job and PlayerJob.name == info.job)  then return true end
                         return false
                     end,
                     onSelect = function(data)
