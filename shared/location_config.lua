@@ -1,7 +1,9 @@
 KloudDev.Locations = {
     ["potato"] = {
         coords = vec4(2852.95, 4627.06, 50.69, 284.01),
+        zoneType = "sphere",
         zoneRadius = 65,
+        zoneSize = vec3(15, 15, 25), -- for box zone
         prop = "prop_plant_fern_02a",
         job = false, -- false to disable, "jobname" to enable
         action = {
@@ -50,7 +52,9 @@ KloudDev.Locations = {
     },
     ["cabbage"] = {
         coords = vec4(2541.34, 4812.27, 33.73, 65.37),
+        zoneType = "sphere",
         zoneRadius = 35,
+        zoneSize = vec3(15, 15, 25), -- for box zone
         prop = "prop_veg_crop_03_cab",
         job = false, -- false to disable, "jobname" to enable
         action = {
@@ -99,7 +103,9 @@ KloudDev.Locations = {
     },
     ["tomato"] = {
         coords = vec4(2238.95, 5074.01, 47.25, 220.28),
+        zoneType = "sphere",
         zoneRadius = 45,
+        zoneSize = vec3(15, 15, 25), -- for box zone
         prop = "prop_veg_crop_02",
         job = false, -- false to disable, "jobname" to enable
         action = {
@@ -149,7 +155,9 @@ KloudDev.Locations = {
     },
     ["coffee_beans"] = {
         coords = vec4(2308.01, 5131.05, 50.5, 45.11),
+        zoneType = "sphere",
         zoneRadius = 35,
+        zoneSize = vec3(15, 15, 25), -- for box zone
         prop = "prop_veg_crop_04_leaf",
         job = false, -- false to disable, "jobname" to enable
         action = {
@@ -204,6 +212,7 @@ KloudDev.Trees = {
         coords = vec4(2341.86, 5003.98, 42.53, 45.44),
         zoneType = "sphere",
         zoneRadius = 55,
+        zoneSize = vec3(15, 15, 25), -- for box zone
         zonePoints = {
             vec3(2455.0, 4670.0, 35.0),
             vec3(2367.0, 4761.0, 35.0),

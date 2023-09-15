@@ -5,7 +5,7 @@ lua54 'yes'
 
 author 'kloud'
 description 'Advanced Farming Job Made for QB/Qbox/ESX by Kloud'
-version '1.1.1'
+version '1.2.0'
 
 shared_scripts {
     '@ox_lib/init.lua',

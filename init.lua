@@ -15,28 +15,66 @@ _G = {
 
 Start = function()
     for zone, info in pairs(KloudDev.Locations) do
-        _T.Zone[zone] = lib.zones.sphere({
-            coords = info.coords,
-            radius = info.zoneRadius,
-            debug = KloudDev.Debug,
-            onEnter = function()
-                if info.job and PlayerJob.name ~= info.job then return end
-                _G.InZone = true
-                _G.CurrentZone = zone
-                SpawnProps(zone)
-            end,
-            onExit = function()
-                _G.InZone = false
-                _G.CurrentZone = nil
-                ClearProps()
-            end
-        })
+        if info.zoneType == "sphere" then
+            _T.Zone[zone] = lib.zones.sphere({
+                coords = info.coords,
+                radius = info.zoneRadius,
+                debug = KloudDev.Debug,
+                onEnter = function()
+                    if info.job and PlayerJob.name ~= info.job then return end
+                    _G.InZone = true
+                    _G.CurrentZone = zone
+                    SpawnProps(zone)
+                end,
+                onExit = function()
+                    _G.InZone = false
+                    _G.CurrentZone = nil
+                    ClearProps()
+                end
+            })
+        elseif info.zoneType == "box" then
+            _T.Zone[zone] = lib.zones.box({
+                coords = info.coords,
+                size = info.zoneSize,
+                rotation = info.coords.w,
+                debug = KloudDev.Debug,
+                onEnter = function()
+                    if info.job and PlayerJob.name ~= info.job then return end
+                    _G.InZone = true
+                    _G.CurrentZone = zone
+                    SpawnProps(zone)
+                end,
+                onExit = function()
+                    _G.InZone = false
+                    _G.CurrentZone = nil
+                    ClearProps()
+                end
+            })
+        end
     end
     for zone, info in pairs(KloudDev.Trees) do
         if info.zoneType == "sphere" then
             _T.Zone[zone] = lib.zones.sphere({
                 coords = info.coords,
                 radius = info.zoneRadius,
+                debug = KloudDev.Debug,
+                onEnter = function()
+                    if info.job and PlayerJob.name ~= info.job then return end
+                    _G.InZone = true
+                    _G.CurrentZone = zone
+                    -- CreateTreeTargets()
+                end,
+                onExit = function()
+                    -- RemoveTreeTargets()
+                    _G.InZone = false
+                    _G.CurrentZone = nil
+                end
+            })
+        elseif info.zoneType == "box" then
+            _T.Zone[zone] = lib.zones.box({
+                coords = info.coords,
+                size = info.zoneSize,
+                rotation = info.coords.w,
                 debug = KloudDev.Debug,
                 onEnter = function()
                     if info.job and PlayerJob.name ~= info.job then return end
