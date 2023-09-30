@@ -22,8 +22,8 @@ AddMoney = function(target, type, amount, reason)
     if type == "cash" then
         type = "money"
     end
-
-    return Player.addAccountMoney(type, amount)
+    Player.addAccountMoney(type, amount)
+    return true
 end
 
 RemoveMoney = function(target, type, amount, reason)
@@ -33,7 +33,8 @@ RemoveMoney = function(target, type, amount, reason)
         type = "money"
     end
 
-    return Player.removeAccountMoney(type, amount)
+    Player.removeAccountMoney(type, amount)
+    return true
 end
 
 GetMoney = function(target, type)
